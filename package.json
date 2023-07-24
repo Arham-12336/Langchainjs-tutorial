@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsc --declaration --outDir dist/",
     "start": "tsx -r dotenv/config src/index.cjs",
+    "QA": "tsx -r dotenv/config src/Pages/api/chat.ts",
     "Response": "tsx -r dotenv/config src/Extractor/response_extractor.ts",
     "start:dist": "npm build && node -r dotenv/config dist/index.js",
     "lint": "eslint src",
