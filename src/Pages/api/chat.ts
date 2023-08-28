@@ -3,6 +3,7 @@ import { PineconeClient } from "pinecone-client";
 import { mrchain } from "chains/multiretrievalchain.js";
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { pinecone } from "chains/pinecone-client.js";
+import { multipromtchain } from "chains/multiprompt.js";
 const index = pinecone.Index('ifrs-v1');
 const vectorStore = await PineconeStore.fromExistingIndex(
   new OpenAIEmbeddings({}),
@@ -14,7 +15,7 @@ const vectorStore = await PineconeStore.fromExistingIndex(
 
 
 
-const chain=mrchain(vectorStore,(token:string)=>{
+const chain=multipromtchain(vectorStore,(token:string)=>{
   console.log("chain runs");
 });
 
